@@ -14,7 +14,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install 
       run: |
-        /root/.nvm/versions/node/v16.11.0/bin/npm install
+        sudo /root/.nvm/versions/node/v16.11.0/bin/npm install
       env:
         CI: true
 
@@ -33,5 +33,5 @@ jobs:
         script: |
           cd /var/www/html/github-ci
           git pull origin master
-          /root/.nvm/versions/node/v16.11.0/bin/npm install 
-          /root/.nvm/versions/node/v16.11.0/bin/pm2 restart index
+          sudo /root/.nvm/versions/node/v16.11.0/bin/npm install 
+          sudo /root/.nvm/versions/node/v16.11.0/bin/pm2 restart index
