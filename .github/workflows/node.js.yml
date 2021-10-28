@@ -14,7 +14,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install 
       run: |
-        sudo /root/.nvm/versions/node/v16.11.0/bin/npm install
+        npm install
       env:
         CI: true
 
