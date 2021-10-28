@@ -39,4 +39,4 @@ jobs:
             git pull # we pull any changes from git
             npm prune # we remove any unused dependencies
             npm install # we install any missing dependencies
-            pm2 restart index.js # we reload the app via PM2
+            pm2 start index.js # we reload the app via PM2
