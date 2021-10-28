@@ -32,5 +32,5 @@
         run: |
           npm install
           pwd
-          pm2 restart 1
+          sudo /root/.nvm/versions/node/v16.11.0/bin/pm2 restart 1
 
