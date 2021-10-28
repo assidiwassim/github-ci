@@ -33,5 +33,5 @@ jobs:
         script: |
           cd /var/www/html/github-ci
           sudo git pull origin master
-          sudo npm install 
+          sudo /root/.nvm/versions/node/v16.11.0/bin/npm install 
           sudo /root/.nvm/versions/node/v16.11.0/bin/pm2 restart index
