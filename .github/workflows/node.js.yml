@@ -24,4 +24,4 @@ jobs:
    # - run: npm install
         script: |
           cd /var/www/html/github-ci
-          sudo /root/.nvm/versions/node/v16.11.0/bin/pm2 start index
+          sudo /root/.nvm/versions/node/v16.11.0/bin/pm2 start index.js
