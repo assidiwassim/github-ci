@@ -1,29 +1,14 @@
-name: Node Github CI
-on: [push]
+name: deploy
+
+on:
+  push:
+    branches: [ master ]
+
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install 
-      run: |
-        sudo npm install
-      env:
-        CI: true
-
   deploy:
-    needs: [setup]
     runs-on: ubuntu-latest
-
     steps:
-    - name: SSH and deploy node app
+    - name: Connect and run Scripts
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.SSH_HOST }}
@@ -31,6 +16,5 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          cd /var/www/html/github-ci
-          touch a
+          whoami
         
