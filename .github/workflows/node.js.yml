@@ -31,6 +31,6 @@
       - name: npm install, build
         run: |
           npm install
-          pwd
-          sudo /root/.nvm/versions/node/v16.11.0/bin/pm2 restart 1
+          cd ..
+          sudo pm2 restart 1
 
