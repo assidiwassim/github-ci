@@ -13,4 +13,4 @@ jobs:
         password: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          cd /var/www/html/github-ci && sudo git pull && sudo /root/.nvm/versions/node/v16.11.0/bin/pm2 index.js 
+          cd /var/www/html/github-ci && sudo git pull && sudo /root/.nvm/versions/node/v16.11.0/bin/npm install 
