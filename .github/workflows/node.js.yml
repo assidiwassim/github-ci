@@ -16,4 +16,4 @@ jobs:
           cd /var/www/html/github-ci
           sudo git pull 
           sudo /root/.nvm/versions/node/v16.11.0/bin/npm install 
-          sudo /root/.nvm/versions/node/v16.11.0/bin/npm start 
+          sudo /root/.nvm/versions/node/v16.11.0/bin/pm2 restart 
