@@ -1,11 +1,11 @@
 name: Node Github CI
 on: [push]
 jobs:
-  ExploreTest:
+  setup:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [16.x]
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
@@ -14,12 +14,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install 
       run: |
-        npm install
+        /root/.nvm/versions/node/v16.11.0/bin/npm install
       env:
         CI: true
 
   deploy:
-    needs: [ExploreTest]
+    needs: [setup]
     runs-on: ubuntu-latest
 
     steps:
@@ -33,5 +33,5 @@ jobs:
         script: |
           cd /var/www/html/github-ci
           git pull origin master
-          npm install 
-          pm2 restart index
+          /root/.nvm/versions/node/v16.11.0/bin/npm install 
+          /root/.nvm/versions/node/v16.11.0/bin/pm2 restart index
