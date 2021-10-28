@@ -25,6 +25,6 @@ jobs:
         script: |
           sudo su
           cd /var/www/html/github-ci 
-          git pull
-          npm install
-          pm2 restart index.js
+          sudo git pull
+          sudo npm install
+          sudo pm2 restart index.js
