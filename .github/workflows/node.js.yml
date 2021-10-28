@@ -22,4 +22,5 @@ jobs:
         password: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.SSH_PORT }}
    # - run: npm install
-    - run: sudo /root/.nvm/versions/node/v16.11.0/bin/pm2 restart index
+        script: |
+          sudo /root/.nvm/versions/node/v16.11.0/bin/pm2 restart index
