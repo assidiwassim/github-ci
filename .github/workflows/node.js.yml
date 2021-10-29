@@ -16,6 +16,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+      - run: npm install # installs your dependencies
+        env:
+            CI: true # shows terminal output!
+
     - name: SSH connection & deploy
       uses: appleboy/ssh-action@master
       with:
@@ -26,5 +30,4 @@ jobs:
         script: |
           cd /var/www/html/github-ci
           sudo git pull 
-          sudo npm install 
           
