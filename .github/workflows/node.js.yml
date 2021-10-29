@@ -3,10 +3,12 @@ on: [push]
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     strategy:
+      fail-fast: false
       matrix:
-        fail-fast: false
         node-version: [16.x]
+
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
