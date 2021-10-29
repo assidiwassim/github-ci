@@ -26,5 +26,3 @@ jobs:
           sudo git pull 
           sudo /root/.nvm/versions/node/v16.11.0/bin/npm install 
           sudo /root/.nvm/versions/node/v16.11.0/bin/pm2 restart all
-      env:
-          CI: true # shows terminal output!
