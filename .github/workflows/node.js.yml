@@ -36,7 +36,8 @@ jobs:
           password: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
+            cd /var/www/html/github-ci
             git pull # we pull any changes from git
             npm prune # we remove any unused dependencies
             npm install # we install any missing dependencies
-            pm2 restart all # we reload the app via PM2
+            pm2 restart 0 # we reload the app via PM2
