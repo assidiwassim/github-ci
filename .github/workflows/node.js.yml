@@ -3,23 +3,9 @@ on: [push]
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
-    strategy:
-      fail-fast: false
-      matrix:
-        node-version: [16.x]
-
+    if: github.ref == 'refs/heads/master'
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm install # installs your dependencies
-      env:
-          CI: true # shows terminal output!
-
     - name: SSH connection & deploy
       uses: appleboy/ssh-action@master
       with:
@@ -30,4 +16,5 @@ jobs:
         script: |
           cd /var/www/html/github-ci
           sudo git pull 
-          
+          sudo /root/.nvm/versions/node/v16.11.0/bin/npm install 
+          sudo /root/.nvm/versions/node/v16.11.0/bin/pm2 restart all
