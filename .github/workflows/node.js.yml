@@ -13,6 +13,5 @@ jobs:
         password: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          sudo git pull 
-          sudo /root/.nvm/versions/node/v16.11.0/bin/npm install 
-          sudo /root/.nvm/versions/node/v16.11.0/bin/pm2 restart all
+          pwd
+   
