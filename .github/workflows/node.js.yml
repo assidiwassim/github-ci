@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
+        fail-fast: false
         node-version: [16.x]
     steps:
     - uses: actions/checkout@v2
@@ -24,4 +25,6 @@ jobs:
           cd /var/www/html/github-ci
           sudo git pull 
           sudo /root/.nvm/versions/node/v16.11.0/bin/npm install 
-          sudo /root/.nvm/versions/node/v16.11.0/bin/pm2 restart 1
+          sudo /root/.nvm/versions/node/v16.11.0/bin/pm2 restart all
+      env:
+          CI: true # shows terminal output!
